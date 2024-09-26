@@ -36,7 +36,6 @@ const Signup = ({ setLoggedUser, setIsLoggedIn }) => {
     // setIsLoggedIn
     setIsLoggedIn(true);
     }
-
   };
 
   return (

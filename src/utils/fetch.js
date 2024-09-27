@@ -1,3 +1,5 @@
+import Login from "../components/logOrSign/login/Login";
+
 export const signupFetch = async (username, email, password) => {
     try {
         const response = await fetch("http://localhost:5003/users/signup", {
@@ -18,5 +20,44 @@ export const signupFetch = async (username, email, password) => {
     } catch (error) {
         console.log(error);
         alert("There is an error. Please check that your console.")
+    }
+};
+
+export const loginFetch = async (username, password) => {
+    try {
+        const response = await fetch("http://localhost:5003/users/login", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password,
+            }),
+        });
+        const data = await response.json();
+        console.log("data in loginFetch: ", data);
+        return data;
+    } catch (error) {
+        console.log(error);
+        alert("This is an error, please try again.");
+    }
+};
+
+export const allUsersFetch = async () => {
+    try {
+        const response = await fetch("http://localhost:5003/users/allusers", {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await response.json();
+        console.log("data in allUsersFetch :", data);
+        return data;
+    } catch (error) {
+        alert("error, run it again");
     }
 };

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { allUsersFetch } from "../../utils/fetch";
+
 import UserCard from "./userCard/UserCard";
 
 import "./UserContainer.css";
@@ -10,7 +12,7 @@ const UserContainer = ({ isLoggedIn }) => {
 
   useEffect(() => {
     async function fetchUsers() {
-      const data = await testUseEffect();
+      const data = await allUsersFetch();
       console.log(data);
       await setUsers(data.users);
     }

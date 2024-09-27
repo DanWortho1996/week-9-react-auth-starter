@@ -44,3 +44,20 @@ export const loginFetch = async (username, password) => {
         alert("This is an error, please try again.");
     }
 };
+
+export const allUsersFetch = async () => {
+    try {
+        const response = await fetch("http://localhost:5003/users/allusers", {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await response.json();
+        console.log("data in allUsersFetch :", data);
+        return data;
+    } catch (error) {
+        alert("error, run it again");
+    }
+};
